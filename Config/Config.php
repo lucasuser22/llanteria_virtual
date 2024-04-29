@@ -35,21 +35,21 @@
 
 	//Datos envio de correo
 	const NOMBRE_REMITENTE = "Tienda Virtual";
-	const EMAIL_REMITENTE = "no-reply@abelosh.com";
+	const EMAIL_REMITENTE = "jaimesalguero233@gmail.com";
 	const NOMBRE_EMPESA = "Tienda Virtual";
-	const WEB_EMPRESA = "www.abelosh.com";
+	const WEB_EMPRESA = "www.llanteriabendiciondedios.com";
 
-	const DESCRIPCION = "La mejor tienda en línea con artículos de moda.";
+	const DESCRIPCION = "La mejor tienda en línea con artículos de llantas.";
 	const SHAREDHASH = "TiendaVirtual";
 
 	//Datos Empresa
-	const DIRECCION = "Avenida las Américas Zona 13, Guatemala";
-	const TELEMPRESA = "+(502)78787845";
-	const WHATSAPP = "+50278787845";
-	const EMAIL_EMPRESA = "info@abelosh.com";
-	const EMAIL_PEDIDOS = "info@abelosh.com"; 
-	const EMAIL_SUSCRIPCION = "info@abelosh.com";
-	const EMAIL_CONTACTO = "info@abelosh.com";
+	const DIRECCION = "Carretera Troncal del Norte, La Palma";
+	const TELEMPRESA = "+(503)7988-8963";
+	const WHATSAPP = "+50379888963";
+	const EMAIL_EMPRESA = "jaimesalguero233@gmail.com";
+	const EMAIL_PEDIDOS = "jaimesalguero233@gmail.com"; 
+	const EMAIL_SUSCRIPCION = "jaimesalguero233@gmail.com";
+	const EMAIL_CONTACTO = "jaimesalguero233@gmail.com";
 
 	const CAT_SLIDER = "1,2,3";
 	const CAT_BANNER = "4,5,6";
