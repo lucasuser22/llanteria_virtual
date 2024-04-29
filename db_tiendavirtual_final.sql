@@ -45,8 +45,8 @@ CREATE TABLE IF NOT EXISTS `categoria` (
 
 INSERT INTO `categoria` (`idcategoria`, `nombre`, `descripcion`, `portada`, `datecreated`, `ruta`, `status`) VALUES
 (1, 'Dunlop', 'Llantas Dunlop', 'img_55da462591e876d51666d98b03979bb5.jpg', '2021-08-20 03:04:04', 'Dunlop', 1),
-(2, 'Falken', 'Llantas Falken', 'img_555e58825c846abb99a99d1f429f07b3.jpg', '2021-08-21 00:47:10', 'Falken', 1),
-(3, 'Sumitomo', 'Llantas Sumitomo', 'img_b1a03789f05cd20d63e0c9daf87af0ba.jpg', '2021-08-21 00:47:10', 'Sumitomo', 1);
+(2, 'Falken', 'Llantas Falken', 'img_72343178609c48544758a9a2aae1d599.jpg', '2021-08-21 00:47:10', 'Falken', 1),
+(3, 'Sumitomo', 'Llantas Sumitomo', 'img_0f9018181f28ca302939274df21f5c59.jpg', '2021-08-21 00:47:10', 'Sumitomo', 1);
 -- --------------------------------------------------------
 
 --
