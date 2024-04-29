@@ -3,7 +3,7 @@
 	//const BASE_URL = "https://abelosh.com/tiendavirtual";
 
 	//Zona horaria
-	date_default_timezone_set('America/Guatemala');
+	date_default_timezone_set('America/El_Salvador');
 
 	//Datos de conexión a Base de Datos
 	const DB_HOST = "localhost";
@@ -98,8 +98,8 @@
 	const PROBUSCAR = 4;
 
 	//REDES SOCIALES
-	const FACEBOOK = "https://www.facebook.com/abelosh";
-	const INSTAGRAM = "https://www.instagram.com/febel24/";
+	const FACEBOOK = "https://www.facebook.com/share/Ya4kqipXPeWzP9sm/?mibextid=qi2Omg";
+	const INSTAGRAM = "https://www.instagram.com/llanteriabdd?igsh=MXB1aGZubTJldmxidQ%3D%3D&utm_source=qr";
 	
 
  ?>
