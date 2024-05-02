@@ -10,6 +10,9 @@
     <!-- Main CSS-->
     <link rel="stylesheet" type="text/css" href="<?= media();?>/css/main.css">
     <link rel="stylesheet" type="text/css" href="<?= media();?>/css/style.css">
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     
     <title><?= $data['page_tag']; ?></title>
   </head>
@@ -39,9 +42,11 @@
             <input id="txtPassword" name="txtPassword" class="form-control" type="password" placeholder="Contraseña">
           </div>
 
-          <div class="form-group">
+          <button type="button" id="btn-login-google" class="btn btn-danger mx-4">Iniciar sesion con GOOGLE</button>
+
+          <div class="form-group mb-0">
             <div class="utility">
-              <p class="semibold-text mb-2"><a href="#" data-toggle="flip">¿Olvidaste tu contraseña?</a></p>
+              <p class="semibold-text"><a href="#" data-toggle="flip">¿Olvidaste tu contraseña?</a></p>
             </div>
           </div>
           <div id="alertLogin" class="text-center"></div>
@@ -64,6 +69,91 @@
         </form>
       </div>
     </section>
+
+
+
+<script>
+
+ // Configuración de Firebase
+ const firebaseConfig = {
+		apiKey: "AIzaSyBX35jWyoUxj5s5rqOXpSjeR1ntr3miubc",
+		authDomain: "testlogin-3a8cf.firebaseapp.com",
+		projectId: "testlogin-3a8cf",
+		storageBucket: "testlogin-3a8cf.appspot.com",
+		messagingSenderId: "930751800450",
+		appId: "1:930751800450:web:ed51fd448da24e9a71c09b",
+		measurementId: "G-20YZ81N6JZ"
+	  };
+
+	  // Inicializar Firebase
+firebase.initializeApp(firebaseConfig);
+
+// Inicializar Firestore
+const db = firebase.firestore();
+
+
+
+// Función para el inicio de sesión con Google
+function iniciarSesionGoogle() {
+    const provider = new firebase.auth.GoogleAuthProvider();
+
+    // Configurar la persistencia de la sesión como "none"
+    firebase.auth().setPersistence(firebase.auth.Auth.Persistence.NONE)
+        .then(() => {
+            // Mostrar el popup de inicio de sesión de Google
+            return firebase.auth().signInWithPopup(provider);
+        })
+        .then((result) => {
+            // Obtener el correo electrónico del usuario
+            const userEmail = result.user.email;
+
+            // Realizar una solicitud al servidor para iniciar sesión utilizando el correo electrónico
+            iniciarSesionServidor(userEmail);
+        })
+        .catch((error) => {
+            // Hubo un error al iniciar sesión
+            console.error("Error al iniciar sesión:", error);
+            mostrarMensajeError("Error al iniciar sesión");
+        });
+}
+
+// Función para iniciar sesión en el servidor utilizando el correo electrónico proporcionado por Google
+function iniciarSesionServidor(correoElectronico) {
+    var divLoading = document.querySelector("#divLoading");
+    divLoading.style.display = "flex";
+
+    var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+    var ajaxUrl = base_url+'/Login/loginUser'; 
+    var formData = new FormData();
+    formData.append('email', correoElectronico); // Envía el correo electrónico al servidor
+
+    request.open("POST",ajaxUrl,true);
+    request.send(formData);
+    request.onreadystatechange = function(){
+        if(request.readyState != 4) return;
+        if(request.status == 200){
+            var objData = JSON.parse(request.responseText);
+            if(objData.status)
+            {
+                window.location.reload(false);
+            }else{
+                swal("Atención", objData.msg, "error");
+            }
+        }else{
+            swal("Atención","Error en el proceso", "error");
+        }
+        divLoading.style.display = "none";
+    }
+}
+
+// Escuchar el clic en el botón de inicio de sesión
+document.getElementById('btn-login-google').addEventListener('click', iniciarSesionGoogle);
+
+
+
+  </script>
+
+
 
 
     <script>
