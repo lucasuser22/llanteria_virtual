@@ -5,6 +5,7 @@ $('.login-content [data-toggle="flip"]').click(function() {
 
 var divLoading = document.querySelector("#divLoading");
 document.addEventListener('DOMContentLoaded', function(){
+	
 	if(document.querySelector("#formLogin")){
 		let formLogin = document.querySelector("#formLogin");
 		formLogin.onsubmit = function(e) {
@@ -45,6 +46,12 @@ document.addEventListener('DOMContentLoaded', function(){
 			}
 		}
 	}
+
+	
+
+
+/*
+
 
 	if(document.querySelector("#formRecetPass")){		
 		let formRecetPass = document.querySelector("#formRecetPass");
@@ -97,6 +104,7 @@ document.addEventListener('DOMContentLoaded', function(){
 		}
 	}
 
+	
 	if(document.querySelector("#formCambiarPass")){
 		let formCambiarPass = document.querySelector("#formCambiarPass");
 		formCambiarPass.onsubmit = function(e) {
@@ -154,5 +162,6 @@ document.addEventListener('DOMContentLoaded', function(){
 			}
 		}
 	}
+	*/
 
 }, false);

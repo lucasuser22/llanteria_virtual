@@ -1,6 +1,5 @@
 // Inicializar Firebase
 firebase.initializeApp(firebaseConfig);
-
 // Inicializar Firestore
 const db = firebase.firestore();
 

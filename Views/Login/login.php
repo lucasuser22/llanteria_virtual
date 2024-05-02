@@ -33,10 +33,12 @@
             <label class="control-label">USUARIO</label>
             <input id="txtEmail" name="txtEmail" class="form-control" type="email" placeholder="Email" autofocus>
           </div>
+          
           <div class="form-group">
             <label class="control-label">CONTRASEÑA</label>
             <input id="txtPassword" name="txtPassword" class="form-control" type="password" placeholder="Contraseña">
           </div>
+
           <div class="form-group">
             <div class="utility">
               <p class="semibold-text mb-2"><a href="#" data-toggle="flip">¿Olvidaste tu contraseña?</a></p>
@@ -62,6 +64,8 @@
         </form>
       </div>
     </section>
+
+
     <script>
         const base_url = "<?= base_url(); ?>";
     </script>

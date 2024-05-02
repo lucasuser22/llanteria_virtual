@@ -21,6 +21,7 @@
 			$this->views->getView($this,"login",$data);
 		}
 
+		
 		public function loginUser(){
 			//dep($_POST);
 			if($_POST){
@@ -39,7 +40,7 @@
 							$_SESSION['login'] = true;
 
 							$arrData = $this->model->sessionLogin($_SESSION['idUser']);
-							sessionUser($_SESSION['idUser']);							
+							sessionUser($_SESSION['idUser']);						
 							$arrResponse = array('status' => true, 'msg' => 'ok');
 						}else{
 							$arrResponse = array('status' => false, 'msg' => 'Usuario inactivo.');
@@ -49,7 +50,15 @@
 				echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
 			}
 			die();
+			
 		}
+
+
+
+		
+
+
+
 
 		public function resetPass(){
 			if($_POST){
