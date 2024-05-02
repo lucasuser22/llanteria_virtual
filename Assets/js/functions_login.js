@@ -1,4 +1,4 @@
-/*
+
 $('.login-content [data-toggle="flip"]').click(function() {
 	$('.login-box').toggleClass('flipped');
 	return false;
@@ -48,18 +48,8 @@ document.addEventListener('DOMContentLoaded', function(){
 		}
 	}
 
-*/
 
-
-$('.login-content [data-toggle="flip"]').click(function() {
-    $('.login-box').toggleClass('flipped');
-    return false;
-});
-
-var divLoading = document.querySelector("#divLoading");
-document.addEventListener('DOMContentLoaded', function(){
-    
-    if(document.querySelector("#formLogin")){
+	if(document.querySelector("#formLogin")){
         let formLogin = document.querySelector("#formLogin");
         formLogin.onsubmit = function(e) {
             e.preventDefault();
@@ -90,7 +80,10 @@ document.addEventListener('DOMContentLoaded', function(){
             
         }
     }
-});
+
+
+
+
 
 
 
@@ -209,4 +202,4 @@ document.addEventListener('DOMContentLoaded', function(){
 	}
 	*/
 
-//}, false);
+}, false);

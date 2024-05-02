@@ -12,7 +12,7 @@
 			parent::__construct();
 		}	
 
-		/*
+		
 		public function loginUser(string $usuario, string $password)
 		{
 			$this->strUsuario = $usuario;
@@ -25,9 +25,9 @@
 			return $request;
 		}
 
-		*/
+		
 
-		public function loginUser(string $usuario)
+		public function loginEmail(string $usuario)
 		{
     		$this->strUsuario = $usuario;
     		$sql = "SELECT idpersona,status FROM persona WHERE 
