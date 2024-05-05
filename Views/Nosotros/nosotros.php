@@ -9,13 +9,13 @@ headerTienda($data);
  </script>
 <!-- Title page -->
 <section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url(<?= $banner ?>);">
-	<h2 class="ltext-105 cl0 txt-center">
+	<h3 class="ltext-105 cl0 txt-center" style="color: #236fa1">
 		<?= $data['page']['titulo'] ?>
-	</h2>
+	</h3>
 </section>
 <!-- Content page -->
 <?php
-	if(viewPage($idpagina)){
+	if(viewPage($idpagina)){	
 		echo $data['page']['contenido'];
 	}else{
   ?>

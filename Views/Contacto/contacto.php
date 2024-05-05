@@ -9,9 +9,9 @@ $idpagina = $data['page']['idpost'];
  </script>
 <!-- Title page -->
 <section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url(<?= $banner ?>);">
-	<h2 class="ltext-105 cl0 txt-center">
+	<h3 class="ltext-105 cl0 txt-center" style="color: #236fa1">
 		Contacto
-	</h2>
+	</h3>
 </section>
 
 <?php
@@ -45,6 +45,67 @@ $idpagina = $data['page']['idpost'];
 						Enviar
 					</button>
 				</form>
+				<div id="divLoading" style="display: none;">
+        <img src="https://giphy.com/explore/carga" alt="Cargando...">
+    </div>
+
+    <script src="https://jquery.com/"></script>
+    <script>
+        // Función para validar el email
+        function fntEmailValidate(email){
+            return /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email);
+        }
+
+        // Evento submit del formulario
+        document.querySelector("#frmContacto").addEventListener('submit',function(e) {
+            e.preventDefault();
+
+            let nombre = document.querySelector("#nombreContacto").value;
+            let email = document.querySelector("#emailContacto").value;
+            let mensaje = document.querySelector("#mensaje").value;
+
+            // Validaciones básicas
+            if(nombre == ""){
+                Swal.fire("", "El nombre es obligatorio", "error");
+                return false;
+            }
+
+            if(!fntEmailValidate(email)){
+                Swal.fire("", "El email no es válido", "error");
+                return false;
+            }
+
+            if(mensaje == ""){
+                Swal.fire("", "Por favor escribe el mensaje", "error");
+                return false;
+            }
+
+            // Mostrar animación de carga
+            let divLoading = document.querySelector("#divLoading");
+            divLoading.style.display = "flex";
+
+            // Petición AJAX para enviar el formulario
+            let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+            let ajaxUrl = "https://blog.hubspot.es/website/ejemplos-paginas-contacto"; // URL del servidor para procesar el formulario
+            let formData = new FormData(document.querySelector("#frmContacto"));
+            request.open("POST",ajaxUrl,true);
+            request.send(formData);
+
+            request.onreadystatechange = function(){
+                if(request.readyState != 4) return;
+                if(request.status == 200){
+                    let objData = JSON.parse(request.responseText);
+                    if(objData.status){
+                        Swal.fire("", objData.msg, "success");
+                        document.querySelector("#frmContacto").reset(); // Limpiar el formulario
+                    }else{
+                        Swal.fire("", objData.msg, "error");
+                    }
+                }
+                divLoading.style.display = "none"; // Ocultar animación de carga
+            }
+        });
+    </script>
 			</div>
 
 			<div class="size-210 bor10 flex-w flex-col-m p-lr-93 p-tb-30 p-lr-15-lg w-full-md">
